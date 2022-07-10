@@ -43,9 +43,5 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(Solution().searchMatrix(matrix=test_cases[1][0],target=test_cases[1][1]),False)
 
 
-def runner():
-    for test_case in test_cases:
-        return Solution().searchMatrix(matrix=test_case[0],target=test_case[1])
-
 if __name__ == '__main__':
     unittest.main(verbosity=2)
