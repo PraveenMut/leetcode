@@ -3,6 +3,7 @@
 # Binary Search time complexity = O(log(n))
 # Total Time complexity = O(log(n)) + O(n) => Ω(n)
 from typing import List
+from collections import namedtuple
 import unittest
 
 def flatten(ary_of_ary):
@@ -31,16 +32,21 @@ class Solution:
   def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
     return bin_search(flatten(matrix),target)
 
-test_cases = [
-    ([[1,3,5,7],[10,11,16,20],[23,30,34,60]],3),
-    ([[1,3,5,7],[10,11,16,20],[23,30,34,60]],13)
-    ]
+TestCase = namedtuple("TestCase", "case target")
+
+case1 = TestCase([[1,3,5,7],[10,11,16,20],[23,30,34,60]],3)
+case2 = TestCase([[1,3,5,7],[10,11,16,20],[23,30,34,60]],13)
+
+# test_cases = [
+#     ([[1,3,5,7],[10,11,16,20],[23,30,34,60]],3),
+#     ([[1,3,5,7],[10,11,16,20],[23,30,34,60]],13)
+#     ]
 
 class TestSolution(unittest.TestCase):
     def test_happy(self):
-        self.assertEqual(Solution().searchMatrix(matrix=test_cases[0][0],target=test_cases[0][1]),True)
+        self.assertEqual(Solution().searchMatrix(matrix=case1.case,target=case1.target),True)
     def test_sad(self):
-        self.assertEqual(Solution().searchMatrix(matrix=test_cases[1][0],target=test_cases[1][1]),False)
+        self.assertEqual(Solution().searchMatrix(matrix=case2.case,target=case2.target),False)
 
 
 if __name__ == '__main__':
