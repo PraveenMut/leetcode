@@ -66,7 +66,7 @@ class LogarithmicSolution:
     self._target = target
     total_elements = (len(matrix[0]) * len(matrix)) - 1
     if target > matrix[-1][-1] or target < matrix[0][0]: return False
-    self.synthetic_bin_search(0,  total_elements)
+    return self.synthetic_bin_search(0,  total_elements)
 
 
 TestCase = namedtuple("TestCase", "case target")
@@ -89,4 +89,4 @@ class TestSolution(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.main(verbosity=3)
